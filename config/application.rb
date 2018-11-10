@@ -26,8 +26,8 @@ module Kaiwa
     config.time_zone = "Tokyo"
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
-
     config.action_view.field_error_proc = proc { |html_tag| html_tag }
+    config.session_store :cache_store
 
     config.generators do |g|
       g.stylesheets false
