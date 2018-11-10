@@ -1,0 +1,49 @@
+AbcSize:
+  Max: 30
+
+AsciiComments:
+  Enabled: false
+
+BlockLength:
+  Max: 30
+  Exclude:
+    - 'spec/**/*'
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+  
+MethodLength:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+  
+MultilineMethodCallIndentation:
+  Enabled: false
+
+Lambda:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - bin/*
+    - config/**/*
+    - db/**/*
+    - lib/task/*.rake
+    - spec/rails_helper.rb
+    - spec/spec_helper.rb
+    - vendor/bundle/**/*
+    - config.ru
+    - Gemfile
+    - Gemfile.lock
+    - Rakefile
