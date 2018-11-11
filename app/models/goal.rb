@@ -5,6 +5,7 @@
 # Table name: goals
 #
 #  id         :bigint(8)        not null, primary key
+#  user_id    :integer          default(0), not null
 #  title      :string           default(""), not null
 #  detail     :text             default(""), not null
 #  limit_date :date

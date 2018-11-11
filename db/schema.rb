@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_051233) do
   enable_extension "plpgsql"
 
   create_table "goals", force: :cascade do |t|
+    t.integer "user_id", default: 0, null: false
     t.string "title", default: "", null: false
     t.text "detail", default: "", null: false
     t.date "limit_date"
@@ -47,4 +48,5 @@ ActiveRecord::Schema.define(version: 2018_11_11_051233) do
     t.index ["uid", "provider"], name: "by_uid", unique: true
   end
 
+  add_foreign_key "goals", "users", name: "goals_user_id_fk"
 end

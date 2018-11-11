@@ -1,11 +1,14 @@
 class CreateGoals < ActiveRecord::Migration[5.2]
   def change
     create_table :goals do |t|
-      t.string :title,  null: false, default: ''
-      t.text   :detail, null: false, default: ''
+      t.integer :user_id, null: false, default: 0
+      t.string  :title,   null: false, default: ''
+      t.text    :detail,  null: false, default: ''
       t.date :limit_date
 
       t.timestamps
     end
+
+    add_foreign_key :goals, :users, name: 'goals_user_id_fk'
   end
 end
