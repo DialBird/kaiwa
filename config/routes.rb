@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get 'settings' => 'settings#edit'
   patch 'settings' => 'settings#update'
 
+  resource :user do
+    resources :goal, except: :index
+  end
+
   authenticated :user do
     root 'dashboard#index'
   end
