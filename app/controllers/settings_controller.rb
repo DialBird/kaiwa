@@ -2,11 +2,12 @@
 
 class SettingsController < ApplicationController
   before_action :setup_user!
+  permits User::ATTRIBUTES, model_name: 'User'
 
   def edit; end
 
-  def update
-    if @user.update(user_params)
+  def update(user)
+    if @user.update(user)
       flash[:success] = t('successes.messages.settings_update')
       redirect_to settings_path
     else
@@ -19,9 +20,5 @@ class SettingsController < ApplicationController
 
   def setup_user!
     @user = current_user
-  end
-
-  def user_params
-    params.require(:user).permit(User::ATTRIBUTES)
   end
 end
