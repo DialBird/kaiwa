@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_051233) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "aasm_state", default: "", null: false
     t.string "uid", default: "", null: false
     t.string "provider", default: "", null: false
     t.string "last_name", default: "", null: false
