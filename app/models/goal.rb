@@ -13,5 +13,9 @@
 #
 
 class Goal < ApplicationRecord
+  ATTRIBUTES = %i[title detail limit_date].freeze
+
   belongs_to :user
+
+  validates :title, presence: true
 end
