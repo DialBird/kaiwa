@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard' => 'dashboard#index'
+  get 'settings' => 'settings#edit'
+  patch 'settings' => 'settings#update'
 
   authenticated :user do
     root 'dashboard#index'

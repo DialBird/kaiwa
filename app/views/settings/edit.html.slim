@@ -1,0 +1,13 @@
+h2.my-3.border-bottom 設定
+= form_with model: @user, url: settings_path, method: :patch, local: true do |f|
+  .form-group
+    = f.label :nick_name, class: 'required-label'
+    = f.text_field :nick_name, class: 'form-control'
+  .row
+    .col-md-12
+      = f.label :name
+    .col-md-6.mb-3
+      = f.text_field :last_name, class: 'form-control', placeholder: '姓'
+    .col-md-6.mb-3
+      = f.text_field :first_name, class: 'form-control', placeholder: '名'
+  = f.submit '更新', class: 'btn btn-success w-100'
