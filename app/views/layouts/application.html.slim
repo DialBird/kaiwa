@@ -11,4 +11,4 @@ html
     = render 'home/jumbotron' if controller_name == 'home'
     .container
       = display_flash
-      = yield
+      = content_for?(:content) ? yield(:content) : yield
