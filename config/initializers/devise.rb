@@ -259,7 +259,7 @@ Devise.setup do |config|
   config.omniauth :facebook, Rails.application.credentials.facebook[:id],
                              Rails.application.credentials.facebook[:secret],
                              scope: 'email',
-                             info_fields: 'email',
+                             info_fields: 'email, last_name, first_name',
                              image_size: { width: 512, height: 512 },
                              secure_image_url: true
 
