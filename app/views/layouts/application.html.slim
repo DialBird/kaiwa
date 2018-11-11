@@ -6,6 +6,8 @@ html
     = display_meta_tags default_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-  body
-    = display_flash
-    = yield
+  body(style="padding-top:4.5rem;")
+    = render 'shared/header'
+    .container
+      = display_flash
+      = yield
