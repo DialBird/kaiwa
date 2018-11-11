@@ -34,6 +34,17 @@ class User < ApplicationRecord
   validates :first_name, presence: true, if: :first_name_changed?
   validate :uid_and_provider_must_be_unique, on: :create
 
+  class << self
+    def from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email || ''
+        user.password = Devise.friendly_token[0, 20]
+        user.last_name = auth.info.last_name || ''
+        user.first_name = auth.info.first_name || ''
+      end
+    end
+  end
+
   private
 
   def uid_and_provider_must_be_unique
