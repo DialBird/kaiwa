@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '6083bc0b054d59385455d9030492c657ac22537bbc281e32166abc1ddee1eac8e01d1e00e0bb322161088b716289a8201ab3df0e2d4120411a0bbd1ed005a988'
+  config.secret_key = Rails.application.credentials.secret_key_base
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -229,7 +229,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -256,7 +256,12 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, Rails.application.credentials.facebook[:id],
+                             Rails.application.credentials.facebook[:secret],
+                             scope: 'email',
+                             info_fields: 'email',
+                             image_size: { width: 512, height: 512 },
+                             secure_image_url: true
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
