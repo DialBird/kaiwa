@@ -31,6 +31,7 @@ module Kaiwa
 
     config.generators do |g|
       g.stylesheets false
+      g.javascripts false
       g.helper false
       g.decorator false
       g.template_engine :slim
