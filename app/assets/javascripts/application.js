@@ -18,7 +18,9 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require facebook_sdk
+//= require moment
 //= require parsley.min
 //= require parsley-ja
+//= require tempusdominus-bootstrap-4
 //= require toastr.min
 //= require_tree ./custom
