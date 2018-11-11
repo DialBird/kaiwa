@@ -13,4 +13,9 @@
 #
 
 class Habit < ApplicationRecord
+  ATTRIBUTES = %i[title is_clear].freeze
+
+  belongs_to :user
+
+  validates :title, presence: true
 end

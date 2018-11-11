@@ -46,9 +46,11 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: %i[facebook]
 
-  has_many :goals, -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
+  has_many :goals,  -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
+  has_many :habits, -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
 
-  accepts_nested_attributes_for :goals, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :goals,  allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :habits, allow_destroy: true, reject_if: :all_blank
 
   validates :nick_name,  presence: true, if: :nick_name_changed?
   validates :last_name,  presence: true, if: :last_name_changed?
