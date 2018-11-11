@@ -6,8 +6,9 @@ html
     = display_meta_tags default_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-  body(style="padding-top:4.5rem;")
+  body(style="padding-top:4rem;")
     = render 'shared/header'
+    = render 'home/jumbotron' if controller_name == 'home'
     .container
       = display_flash
       = yield
