@@ -1,4 +1,20 @@
 h2.page-title 目標登録
 
 = form_with model: @user, url: setup_goal_path, method: :patch, local: true do |f|
+  = f.fields_for :goals do |goal|
+    .nested-fields
+      = goal.hidden_field :id
+      .form-group
+        = goal.label :title, class: 'required-label'
+        = goal.text_field :title, class: 'form-control'
+      .form-group
+        = goal.label :detail
+        = goal.text_area :detail, class: 'form-control', rows: 5
+      .form-group
+        = goal.label :limit_date
+        #datetimepicker.input-group.w-md-50(data-target-input="nearest")
+          = goal.text_field :limit_date, class: 'form-control', data: { target: "#datetimepicker" }
+          .input-group-append(data-target="#datetimepicker" data-toggle="datetimepicker")
+            .input-group-text
+              = fa_icon 'calendar'
   = f.submit '登録', class: 'btn btn-success w-100'

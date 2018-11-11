@@ -1,8 +1,13 @@
 ja:
   activerecord:
     models:
+      goal: 目標
       user: ユーザー
     attributes:
+      goal:
+        title: 目標
+        detail: 詳細
+        limit_date: 期限
       user:
         email: Email
         nick_name: ニックネーム
