@@ -25,5 +25,20 @@
 #
 
 class User < ApplicationRecord
+  ATTRIBUTES = %i[last_name first_name nick_name].freeze
+
   devise :omniauthable, omniauth_providers: %i[facebook]
+
+  validates :nick_name,  presence: true
+  validates :last_name,  presence: true, if: :last_name_changed?
+  validates :first_name, presence: true, if: :first_name_changed?
+  validate :uid_and_provider_must_be_unique, on: :create
+
+  private
+
+  def uid_and_provider_must_be_unique
+    return unless User.exists?(uid: uid, provider: provider)
+
+    errors.add(:base, I18n.t('errors.messages.registered_account'))
+  end
 end
