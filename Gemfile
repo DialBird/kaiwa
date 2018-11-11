@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 # util
+gem 'aasm'
 gem 'action_args'
 gem 'active_decorator'
 gem 'active_hash'
