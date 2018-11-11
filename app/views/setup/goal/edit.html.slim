@@ -1,0 +1,4 @@
+h2.page-title 目標登録
+
+= form_with model: @user, url: setup_goal_path, method: :patch, local: true do |f|
+  = f.submit '登録', class: 'btn btn-success w-100'

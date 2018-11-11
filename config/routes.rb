@@ -6,6 +6,14 @@ Rails.application.routes.draw do
     delete 'logout' => 'users/sessions#destroy', as: :destroy_user_session
   end
 
+  get 'aasm_hub' => 'aasm_hub#index'
+  namespace :setup do
+    get 'nick_name' => 'nick_name#edit'
+    patch 'nick_name' => 'nick_name#update'
+    get 'goal' => 'goal#edit'
+    patch 'goal' => 'goal#update'
+  end
+
   get 'dashboard' => 'dashboard#index'
   get 'settings' => 'settings#edit'
   patch 'settings' => 'settings#update'

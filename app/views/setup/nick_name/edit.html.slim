@@ -1,0 +1,7 @@
+h2.page-title ニックネーム登録
+
+= form_with model: @user, url: setup_nick_name_path, method: :patch, local: true do |f|
+  .form-group
+    = f.label :nick_name, class: 'required-label'
+    = f.text_field :nick_name, class: 'form-control'
+  = f.submit '登録', class: 'btn btn-success w-100'
