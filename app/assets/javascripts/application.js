@@ -17,5 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require cocoon
+//= require parsley.min
+//= require parsley-ja
 //= require toastr.min
 //= require_tree ./custom
