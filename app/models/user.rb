@@ -26,7 +26,23 @@
 #
 
 class User < ApplicationRecord
+  include AASM
+
   ATTRIBUTES = %i[last_name first_name nick_name].freeze
+
+  aasm do
+    state :nick_name_required
+    state :goal_required
+    state :completed
+
+    event :nick_name_completed do
+      transitions from: :nick_name_required, to: :goal_required
+    end
+
+    event :goal_completed do
+      transitions from: :goal_required, to: :completed
+    end
+  end
 
   devise :omniauthable, omniauth_providers: %i[facebook]
 
