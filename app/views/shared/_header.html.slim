@@ -1,2 +1,8 @@
 nav.navbar.navbar-expand-md.bg-dark.navbar-dark.fixed-top
-  a.navbar-brand[href="#"] Kaiwa
+  = link_to 'Kaiwa', root_path, class: 'navbar-brand'
+  - if user_signed_in?
+    .ml-auto.dropdown
+      button.btn.btn-dark.border-secondary(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+        = fa_icon 'bars', class: 'text-white'
+      .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdownMenuButton")
+        = link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete
