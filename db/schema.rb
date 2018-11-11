@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_051233) do
+ActiveRecord::Schema.define(version: 2018_11_11_081138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2018_11_11_051233) do
     t.string "title", default: "", null: false
     t.text "detail", default: "", null: false
     t.date "limit_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "habits", force: :cascade do |t|
+    t.integer "user_id", default: 0, null: false
+    t.string "title", default: "", null: false
+    t.boolean "is_clear", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,4 +57,5 @@ ActiveRecord::Schema.define(version: 2018_11_11_051233) do
   end
 
   add_foreign_key "goals", "users", name: "goals_user_id_fk"
+  add_foreign_key "habits", "users", name: "habits_user_id_fk"
 end
