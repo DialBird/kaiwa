@@ -17,6 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require cocoon
+//= require facebook_sdk
 //= require parsley.min
 //= require parsley-ja
 //= require toastr.min
