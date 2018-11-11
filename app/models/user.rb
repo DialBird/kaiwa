@@ -17,6 +17,11 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  uid                    :string           default(""), not null
+#  provider               :string           default(""), not null
+#  last_name              :string           default(""), not null
+#  first_name             :string           default(""), not null
+#  nick_name              :string           default(""), not null
 #
 
 class User < ApplicationRecord
