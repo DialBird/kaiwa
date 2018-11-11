@@ -5,5 +5,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#index'
 
+  authenticated :user do
+    root 'dashboard#index'
+  end
   root 'home#index'
 end
