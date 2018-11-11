@@ -31,16 +31,16 @@ class User < ApplicationRecord
   ATTRIBUTES = %i[last_name first_name nick_name].freeze
 
   aasm do
-    state :nick_name_required
-    state :goal_required
-    state :completed
+    state :nick_name_settings_required
+    state :goal_settings_required
+    state :settings_completed
 
-    event :nick_name_completed do
-      transitions from: :nick_name_required, to: :goal_required
+    event :nick_name_settings_completed do
+      transitions from: :nick_name_settings_required, to: :goal_settings_required
     end
 
-    event :goal_completed do
-      transitions from: :goal_required, to: :completed
+    event :goal_settings_completed do
+      transitions from: :goal_settings_required, to: :settings_completed
     end
   end
 
