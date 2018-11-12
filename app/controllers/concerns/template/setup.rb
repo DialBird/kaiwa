@@ -6,7 +6,7 @@ module Template::Setup
   included do
     skip_before_action :aasm_state_completed?
     before_action :setup_user!
-    layout 'setup'
+    layout 'narrow'
   end
 
   def edit
