@@ -15,4 +15,5 @@
 #
 
 class Log < ApplicationRecord
+  belongs_to :logable, polymorphic: true
 end
