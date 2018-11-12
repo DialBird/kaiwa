@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_081138) do
+ActiveRecord::Schema.define(version: 2018_11_12_095529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id", default: 0, null: false
+    t.string "title", default: "", null: false
+    t.text "memo", default: "", null: false
+    t.integer "star", default: 0, null: false
+    t.text "review", default: "", null: false
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id", default: 0, null: false
@@ -58,6 +69,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_081138) do
     t.index ["uid", "provider"], name: "by_uid", unique: true
   end
 
+  add_foreign_key "events", "users", name: "events_user_id_fk"
   add_foreign_key "goals", "users", name: "goals_user_id_fk"
   add_foreign_key "habits", "users", name: "habits_user_id_fk"
 end
