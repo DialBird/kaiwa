@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_100128) do
     t.string "title", default: "", null: false
     t.text "memo", default: "", null: false
     t.boolean "is_clear", default: false, null: false
-    t.integer "log_count", default: 0, null: false
+    t.integer "logs_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

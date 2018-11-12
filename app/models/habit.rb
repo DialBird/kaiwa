@@ -9,7 +9,7 @@
 #  title      :string           default(""), not null
 #  memo       :text             default(""), not null
 #  is_clear   :boolean          default(FALSE), not null
-#  log_count  :integer          default(0), not null
+#  logs_count :integer          default(0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
