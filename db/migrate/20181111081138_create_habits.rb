@@ -1,9 +1,11 @@
 class CreateHabits < ActiveRecord::Migration[5.2]
   def change
     create_table :habits do |t|
-      t.integer :user_id,  null: false, default: 0
-      t.string  :title,    null: false, default: ''
-      t.boolean :is_clear, null: false, default: 0
+      t.integer :user_id,   null: false, default: 0
+      t.string  :title,     null: false, default: ''
+      t.text    :memo,      null: false, default: ''
+      t.boolean :is_clear,  null: false, default: 0
+      t.integer :log_count, null: false, default: 0
 
       t.timestamps
     end

@@ -7,13 +7,15 @@
 #  id         :bigint(8)        not null, primary key
 #  user_id    :integer          default(0), not null
 #  title      :string           default(""), not null
+#  memo       :text             default(""), not null
 #  is_clear   :boolean          default(FALSE), not null
+#  log_count  :integer          default(0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Habit < ApplicationRecord
-  ATTRIBUTES = %i[title is_clear].freeze
+  ATTRIBUTES = %i[title memo is_clear].freeze
 
   belongs_to :user
 

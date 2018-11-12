@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 2018_11_11_081138) do
   create_table "habits", force: :cascade do |t|
     t.integer "user_id", default: 0, null: false
     t.string "title", default: "", null: false
+    t.text "memo", default: "", null: false
     t.boolean "is_clear", default: false, null: false
+    t.integer "log_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
