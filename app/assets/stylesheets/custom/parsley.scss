@@ -1,0 +1,17 @@
+.parsley-error {
+  background: #FFE4E4;
+}
+.form-section {
+  display: none;
+}
+.form-section.current {
+  display: inherit;
+}
+.parsley-error-list {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  .parsley-error-item {
+    color: #DC3545 !important;
+  }
+}
