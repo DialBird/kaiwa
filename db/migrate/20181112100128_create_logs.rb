@@ -10,5 +10,6 @@ class CreateLogs < ActiveRecord::Migration[5.2]
     end
 
     add_foreign_key :logs, :events, name: 'logs_event_id_fk'
+    add_index :logs, %i[logable_type logable_id event_id], unique: true
   end
 end

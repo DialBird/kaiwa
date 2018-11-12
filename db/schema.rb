@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_100128) do
     t.integer "star", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["logable_type", "logable_id", "event_id"], name: "index_logs_on_logable_type_and_logable_id_and_event_id", unique: true
     t.index ["logable_type", "logable_id"], name: "index_logs_on_logable_type_and_logable_id"
   end
 
