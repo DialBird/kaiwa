@@ -16,5 +16,10 @@
 #
 
 class Event < ApplicationRecord
+  ATTRIBUTES = %i[title memo star review date].freeze
+
   belongs_to :user
+
+  validates :title, presence: true
+  validates :date,  presence: true
 end
