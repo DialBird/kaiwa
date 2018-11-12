@@ -16,6 +16,7 @@
 
 class Log < ApplicationRecord
   belongs_to :logable, polymorphic: true
+  belongs_to :event
   counter_culture :logable
 
   validate :already_logged?
