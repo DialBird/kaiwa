@@ -16,4 +16,15 @@
 
 class Log < ApplicationRecord
   belongs_to :logable, polymorphic: true
+  counter_culture :logable
+
+  validate :already_logged?
+
+  private
+
+  def already_logged?
+    return unless Log.exists?(logable: logable, event_id: event_id)
+
+    errors.add(:base, I18n.t('errors.messages.already_logged'))
+  end
 end

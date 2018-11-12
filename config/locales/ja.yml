@@ -133,6 +133,7 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
+      already_logged: すでに記録済みです
       signup: サインアップできませんでした
       settings_update: 設定の更新に失敗しました
       registered_account: すでに登録済みのアカウントです
