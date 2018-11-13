@@ -1,0 +1,4 @@
+h2.page-title 自分の癖追加
+
+= form_with model: @habit, url: user_habits_path, class: 'parsley', method: :post, local: true do |f|
+  = render 'form', f: f

@@ -134,9 +134,11 @@ ja:
       wrong_length: は%{count}文字で入力してください
       other_than: は%{count}以外の値にしてください
       already_logged: すでに記録済みです
+      create: "%{model}の作成に失敗しました"
       signup: サインアップできませんでした
       settings_update: 設定の更新に失敗しました
       registered_account: すでに登録済みのアカウントです
+      update: "%{model}の更新に失敗しました"
     template:
       body: 次の項目を確認してください
       header:
@@ -144,6 +146,9 @@ ja:
         other: "%{model}に%{count}個のエラーが発生しました"
   successes:
     messages:
+      created: "%{model}が作成されました"
+      deleted: "%{model}が削除されました"
+      updated: "%{model}が更新されました"
       settings_update: 設定を更新しました
   helpers:
     select:

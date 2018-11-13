@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resource :user do
     resources :goal, except: :index
+    resources :habits, except: :index
   end
 
   authenticated :user do

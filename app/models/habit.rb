@@ -17,7 +17,7 @@
 class Habit < ApplicationRecord
   include Logable
 
-  ATTRIBUTES = %i[title memo is_clear].freeze
+  ATTRIBUTES = %i[user_id title memo is_clear].freeze
 
   belongs_to :user
 

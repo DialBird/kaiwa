@@ -1,5 +1,25 @@
 h2.page-title Dashboard
 
-h3
+h3.my-3
   | 現在の目標：　
   = @user.current_goal
+
+h4 自分の癖
+table.table
+  thead
+    tr
+      th 名前
+      th 回数
+      th.text-right
+        = link_to new_user_habit_path, class: 'btn btn-success' do
+          = fa_icon 'plus', text: '追加する'
+  tbody
+    - @user.habits.each do |habit|
+      tr
+        td = habit.title
+        td = habit.logs_count
+        td.text-right
+          = link_to edit_user_habit_path(habit), class: 'btn btn-success mr-1' do
+            = fa_icon 'pencil', text: '編集'
+          = link_to user_habit_path(habit), class: 'btn btn-danger', method: :delete do
+            = fa_icon 'trash', text: '削除'
