@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   patch 'settings' => 'settings#update'
 
   resource :user do
+    resources :events
     resources :goal, except: :index
     resources :habits, except: :index
   end

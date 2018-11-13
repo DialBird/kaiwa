@@ -1,0 +1,4 @@
+h2.page-title イベント追加
+
+= form_with model: @event, url: user_events_path, class: 'parsley', method: :post, local: true do |f|
+  = render 'form', f: f
