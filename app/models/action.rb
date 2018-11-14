@@ -15,6 +15,8 @@
 #
 
 class Action < ApplicationRecord
+  include Logable
+
   ATTRIBUTES = %i[goal_id title memo star].freeze
 
   belongs_to :goal
