@@ -12,4 +12,6 @@
 #
 
 class Plan < ApplicationRecord
+  belongs_to :action
+  belongs_to :event
 end

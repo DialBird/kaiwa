@@ -19,7 +19,10 @@ class Event < ApplicationRecord
   ATTRIBUTES = %i[user_id title memo star review date].freeze
 
   belongs_to :user
-  has_many :logs, dependent: :destroy, inverse_of: :event
+  has_many :logs,  dependent: :destroy, inverse_of: :event
+  has_many :plans, dependent: :destroy, inverse_of: :event
+
+  accepts_nested_attributes_for :plans, allow_destroy: true, reject_if: :all_blank
 
   validates :title, presence: true
   validates :date,  presence: true
