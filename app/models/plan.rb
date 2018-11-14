@@ -14,6 +14,10 @@
 #
 
 class Plan < ApplicationRecord
+  ATTRIBUTES = %i[title].freeze
+
   belongs_to :action
   belongs_to :event
+
+  validates :title, presence: true
 end
