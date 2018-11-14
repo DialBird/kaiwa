@@ -17,5 +17,7 @@
 class Episode < ApplicationRecord
   ATTRIBUTES = %i[user_id title content star].freeze
 
+  belongs_to :user
+
   validates :title, presence: true
 end
