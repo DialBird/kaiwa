@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_100242) do
+ActiveRecord::Schema.define(version: 2018_11_14_100901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2018_11_14_100242) do
     t.integer "goal_id", default: 0, null: false
     t.string "title", default: "", null: false
     t.text "memo", default: "", null: false
+    t.integer "star", default: 0, null: false
+    t.integer "logs_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.integer "user_id", default: 0, null: false
+    t.string "title", default: "", null: false
+    t.string "content", default: "", null: false
     t.integer "star", default: 0, null: false
     t.integer "logs_count", default: 0, null: false
     t.datetime "created_at", null: false
@@ -102,6 +112,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100242) do
   end
 
   add_foreign_key "actions", "goals", name: "actions_goal_id_fk"
+  add_foreign_key "episodes", "users", name: "episodes_user_id_fk"
   add_foreign_key "events", "users", name: "events_user_id_fk"
   add_foreign_key "goals", "users", name: "goals_user_id_fk"
   add_foreign_key "habits", "users", name: "habits_user_id_fk"
