@@ -81,10 +81,10 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
   create_table "plans", force: :cascade do |t|
     t.integer "action_id", default: 0, null: false
     t.integer "event_id", default: 0, null: false
+    t.string "title", default: "", null: false
     t.boolean "is_done", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["action_id", "event_id"], name: "index_plans_on_action_id_and_event_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
