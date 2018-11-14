@@ -15,6 +15,8 @@
 #
 
 class Episode < ApplicationRecord
+  include Logable
+
   ATTRIBUTES = %i[user_id title content star].freeze
 
   belongs_to :user
