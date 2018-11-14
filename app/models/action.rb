@@ -17,5 +17,7 @@
 class Action < ApplicationRecord
   ATTRIBUTES = %i[goal_id title memo star].freeze
 
+  belongs_to :goal
+
   validates :title, presence: true
 end

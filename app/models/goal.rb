@@ -18,6 +18,9 @@ class Goal < ApplicationRecord
   ATTRIBUTES = %i[title detail limit_date].freeze
 
   belongs_to :user
+  has_many :actions, dependent: :destroy, inverse_of: :goal
+
+  accepts_nested_attributes_for :actions, allow_destroy: true, reject_if: :all_blank
 
   validates :title, presence: true
 end
