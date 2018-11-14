@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_100128) do
     t.integer "user_id", default: 0, null: false
     t.string "title", default: "", null: false
     t.text "detail", default: "", null: false
+    t.boolean "is_clear", default: false, null: false
     t.date "limit_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

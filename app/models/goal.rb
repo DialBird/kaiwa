@@ -8,6 +8,7 @@
 #  user_id    :integer          default(0), not null
 #  title      :string           default(""), not null
 #  detail     :text             default(""), not null
+#  is_clear   :boolean          default(FALSE), not null
 #  limit_date :date
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
