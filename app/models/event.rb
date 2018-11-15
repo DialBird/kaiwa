@@ -10,6 +10,7 @@
 #  memo       :text             default(""), not null
 #  star       :integer          default(0), not null
 #  review     :text             default(""), not null
+#  url        :string           default(""), not null
 #  date       :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

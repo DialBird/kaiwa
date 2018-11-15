@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
     t.text "memo", default: "", null: false
     t.integer "star", default: 0, null: false
     t.text "review", default: "", null: false
+    t.string "url", default: "", null: false
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
