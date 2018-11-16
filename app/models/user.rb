@@ -23,6 +23,7 @@
 #  last_name              :string           default(""), not null
 #  first_name             :string           default(""), not null
 #  nick_name              :string           default(""), not null
+#  current_goal_id        :integer          default(0), not null
 #
 
 class User < ApplicationRecord

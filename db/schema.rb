@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
     t.string "title", default: "", null: false
     t.text "detail", default: "", null: false
     t.boolean "is_clear", default: false, null: false
-    t.boolean "is_selected", default: false, null: false
     t.date "limit_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -108,6 +107,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
     t.string "last_name", default: "", null: false
     t.string "first_name", default: "", null: false
     t.string "nick_name", default: "", null: false
+    t.integer "current_goal_id", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "by_uid", unique: true
