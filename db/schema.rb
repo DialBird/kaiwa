@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
     t.string "title", default: "", null: false
     t.text "detail", default: "", null: false
     t.boolean "is_clear", default: false, null: false
+    t.boolean "is_selected", default: false, null: false
     t.date "limit_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
