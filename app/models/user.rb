@@ -46,6 +46,7 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: %i[facebook]
 
+  has_one :current_goal, -> { where(is_selected: true) }
   has_many :episodes, -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
   has_many :events,   -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
   has_many :goals,    -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
