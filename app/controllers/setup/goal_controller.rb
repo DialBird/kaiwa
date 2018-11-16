@@ -3,11 +3,23 @@
 class Setup::GoalController < ApplicationController
   include Template::Setup
 
-  permits goals_attributes: Goal::ATTRIBUTES, model_name: 'User'
+  permits Goal::ATTRIBUTES, model_name: 'Goal'
 
+  # TODO: newとcreateへ
   def edit
     super
-    @user.goals.build if @user.goals.empty?
+    @goal = Goal.new(user_id: @user.id)
+  end
+
+  def update(goal)
+    @goal = Goal.new(goal)
+    if @goal.save
+      @user.goal_settings_completed!
+      flash[:success] = t('successes.messages.setup_completed')
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private

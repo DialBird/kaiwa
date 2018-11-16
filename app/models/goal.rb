@@ -16,7 +16,7 @@
 #
 
 class Goal < ApplicationRecord
-  ATTRIBUTES = %i[title detail limit_date].freeze
+  ATTRIBUTES = %i[user_id title detail limit_date].freeze
 
   belongs_to :user
   has_many :actions, dependent: :destroy, inverse_of: :goal
