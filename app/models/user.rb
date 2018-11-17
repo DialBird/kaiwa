@@ -47,7 +47,6 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: %i[facebook]
 
-  has_one :current_goal, -> { where(is_selected: true) }
   has_many :episodes, -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
   has_many :events,   -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
   has_many :goals,    -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :user
@@ -60,6 +59,7 @@ class User < ApplicationRecord
   validates :nick_name,  presence: true, if: :nick_name_changed?
   validates :last_name,  presence: true, if: :last_name_changed?
   validates :first_name, presence: true, if: :first_name_changed?
+  validate :current_goal_id_should_be_own, if: :current_goal_id_changed?
   validate :uid_and_provider_must_be_unique, on: :create
 
   class << self
@@ -72,7 +72,17 @@ class User < ApplicationRecord
     end
   end
 
+  def current_goal
+    Goal.find(current_goal_id)
+  end
+
   private
+
+  def current_goal_id_should_be_own
+    return if goals.pluck(:id).include?(current_goal_id)
+
+    errors.add(:base, I18n.t('errors.messages.invalid_action'))
+  end
 
   def uid_and_provider_must_be_unique
     return unless User.exists?(uid: uid, provider: provider)
