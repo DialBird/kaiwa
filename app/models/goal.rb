@@ -17,9 +17,21 @@
 class Goal < ApplicationRecord
   ATTRIBUTES = %i[user_id title detail limit_date].freeze
 
+  before_destroy :current_goal_cant_be_removed
+
   belongs_to :user
   has_many :actions, dependent: :destroy, inverse_of: :goal
   has_many :events, -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :goal
 
   validates :title, presence: true
+
+  def current_goal?
+    user.current_goal_id == id
+  end
+
+  private
+
+  def current_goal_cant_be_removed
+    throw :abort if current_goal?
+  end
 end

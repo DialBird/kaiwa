@@ -1,0 +1,4 @@
+h2.page-title 目標編集
+
+= form_with model: @goal, url: user_goal_path(@goal), class: 'parsley', method: :patch, local: true do |f|
+  = render 'shared/forms/goal', f: f

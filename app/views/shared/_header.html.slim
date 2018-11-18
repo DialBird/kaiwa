@@ -1,19 +1,11 @@
 nav.navbar.navbar-expand-md.bg-dark.navbar-dark.fixed-top
   = link_to 'Kaiwa', root_path, class: 'navbar-brand'
   - if user_signed_in?
-    ul.nav.navbar-nav.navbar-right
-      li
-        = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
-          | 現在の目標：#{@user.current_goal}
-          span.caret
-        ul.dropdown-menu.dropdown-menu-right
-          - @user.goals.each do |goal|
-            li
-              = link_to goal.title, root_path
     .ml-auto.dropdown
       button.btn.btn-dark.border-secondary(type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
         = fa_icon 'bars', class: 'text-white'
       .dropdown-menu.dropdown-menu-right(aria-labelledby="dropdownMenuButton")
+        = link_to '目標', user_goals_path, class: 'dropdown-item'
         = link_to 'イベント', user_events_path, class: 'dropdown-item'
         = link_to '設定', settings_path, class: 'dropdown-item'
         = link_to 'ログアウト', destroy_user_session_path, class: 'dropdown-item', method: :delete

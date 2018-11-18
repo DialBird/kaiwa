@@ -1,0 +1,19 @@
+.form-group
+  = f.label :title, class: 'required-label'
+  = f.text_field :title, class: 'form-control'
+.form-group
+  = f.label :detail
+  = f.text_area :detail, class: 'form-control', rows: 3
+.form-group
+  = f.label :limit_date
+  #datetimepicker.input-group.w-md-50(data-target-input="nearest")
+    = f.text_field :limit_date, class: 'form-control', data: { target: "#datetimepicker" }
+    .input-group-append(data-target="#datetimepicker" data-toggle="datetimepicker")
+      .input-group-text
+        = fa_icon 'calendar'
+- if f.object.persisted? && !f.object.current_goal?
+  .form-group
+    label.form-check
+      = check_box_tag :set_to_current_goal, true, false, class: 'form-check-input'
+      span.form-check-label 現在の目標にする
+= f.submit '登録', class: 'btn btn-success w-100'

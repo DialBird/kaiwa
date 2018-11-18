@@ -12,6 +12,7 @@ class Setup::GoalController < ApplicationController
   end
 
   def update(goal)
+    params[:goal][:user_id] = current_user.id
     @goal = Goal.new(goal)
     if @goal.save
       @user.update!(current_goal_id: @goal.id)
@@ -19,6 +20,12 @@ class Setup::GoalController < ApplicationController
       flash[:success] = t('successes.messages.setup_completed')
       redirect_to root_path
     else
+      Rails.logger.fatal(<<~LOG)
+        Error @Setup::GoalController#update
+        Fail to create goal
+        MSG: #{@goal.errors.full_messages}
+      LOG
+      flash[:danger] = t('errors.messages.setup_failed')
       render :edit
     end
   end

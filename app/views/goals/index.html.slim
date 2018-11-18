@@ -1,0 +1,20 @@
+h2.page-title 目標
+
+table.table
+  thead
+    tr
+      th 達成日
+      th 目標名
+      th.text-right
+        = link_to new_user_goal_path, class: 'btn btn-success' do
+          = fa_icon 'plus', text: '追加する'
+  tbody
+    - @goals.each do |goal|
+      tr
+        td = goal.display_limit
+        td = goal.display_title
+        td.text-right
+          = link_to edit_user_goal_path(goal), class: 'btn btn-success mr-1' do
+            = fa_icon 'pencil'
+          = link_to user_goal_path(goal), class: 'btn btn-danger', method: :delete do
+            = fa_icon 'trash'

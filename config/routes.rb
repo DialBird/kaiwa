@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resource :user do
     resources :events
-    resources :goal, except: :index
+    resources :goals
     resources :habits, except: :index
   end
 

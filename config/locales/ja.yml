@@ -135,6 +135,9 @@ ja:
       other_than: は%{count}以外の値にしてください
       already_logged: すでに記録済みです
       create: "%{model}の作成に失敗しました"
+      current_goal_cant_be_removed: 現在の目標は削除できません
+      not_your_own_data: 他人のデータは操作できません
+      setup_failed: セットアップに失敗しました
       signup: サインアップできませんでした
       settings_update: 設定の更新に失敗しました
       registered_account: すでに登録済みのアカウントです
