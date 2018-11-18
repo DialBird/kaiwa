@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
+    get '/' => redirect('/dashboard')
     root 'dashboard#index'
   end
+  get 'dashboard' => 'dashboard#index'
+  post 'dashboard' => 'dashboard#index'
   root 'home#index'
 end
