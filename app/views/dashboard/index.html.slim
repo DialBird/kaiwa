@@ -1,25 +1,49 @@
 h2.page-title Dashboard
 
-h3.my-3
-  | 現在の目標：　
-  = @user.current_goal
+.form-group.row
+  .col-md-3
+    = label_tag '現在の目標'
+  .col-md-9
+    = collection_select :goals, :title, Goal.all, :id, :title, {}, selected: @user.current_goal.id, class: 'form-control'
 
-h4 自分の癖
-table.table
-  thead
-    tr
-      th 名前
-      th 回数
-      th.text-right
-        = link_to new_user_habit_path, class: 'btn btn-success' do
-          = fa_icon 'plus', text: '追加する'
-  tbody
-    - @user.habits.each do |habit|
-      tr
-        td = habit.title
-        td = habit.logs_count
-        td.text-right
-          = link_to edit_user_habit_path(habit), class: 'btn btn-success mr-1' do
-            = fa_icon 'pencil', text: '編集'
-          = link_to user_habit_path(habit), class: 'btn btn-danger', method: :delete do
-            = fa_icon 'trash', text: '削除'
+.row
+  .col-xl-4.order-xl-2
+    h4 イベント
+    table.table
+      thead
+        tr
+          th 日付
+          th イベント名
+          th.text-right
+            = link_to new_user_habit_path, class: 'btn btn-success' do
+              = fa_icon 'plus'
+      tbody
+        - @user.events.each do |event|
+          tr
+            td = event.display_date
+            td = event.title
+            td.text-right
+              = link_to edit_user_event_path(event), class: 'btn btn-success mr-1' do
+                = fa_icon 'pencil'
+              = link_to user_event_path(event), class: 'btn btn-danger', method: :delete do
+                = fa_icon 'trash'
+  .col-xl-8.order-xl-1
+    h4 自分の癖
+    table.table
+      thead
+        tr
+          th 名前
+          th 回数
+          th.text-right
+            = link_to new_user_habit_path, class: 'btn btn-success' do
+              = fa_icon 'plus', text: '追加する'
+      tbody
+        - @user.habits.each do |habit|
+          tr
+            td = habit.title
+            td = habit.logs_count
+            td.text-right
+              = link_to edit_user_habit_path(habit), class: 'btn btn-success mr-1' do
+                = fa_icon 'pencil', text: '編集'
+              = link_to user_habit_path(habit), class: 'btn btn-danger', method: :delete do
+                = fa_icon 'trash', text: '削除'
