@@ -1,12 +1,16 @@
 ja:
   activerecord:
     models:
+      action: アクション
       event: イベント
       goal: 目標
       habit: 癖
       plan: 計画
       user: ユーザー
     attributes:
+      action:
+        title: アクション名
+        memo: メモ
       event:
         title: イベント名
         memo: メモ

@@ -1,0 +1,4 @@
+h2.page-title アクション編集
+
+= form_with model: @action, scope: :aktion, url: user_action_path(@action), class: 'parsley', method: :patch, local: true do |f|
+  = render 'form', f: f

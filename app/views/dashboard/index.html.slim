@@ -35,7 +35,7 @@ h2.page-title Dashboard
           th 回数
           th.text-right
             = link_to new_user_action_path, class: 'btn btn-success' do
-              = fa_icon 'plus', text: '追加する'
+              = fa_icon 'plus'
       tbody
         - @goal.actions.each do |action|
           tr
