@@ -14,7 +14,7 @@ h2.page-title Dashboard
           th 日付
           th イベント名
           th.text-right
-            = link_to new_user_habit_path, class: 'btn btn-success' do
+            = link_to new_user_event_path, class: 'btn btn-success' do
               = fa_icon 'plus'
       tbody
         - @goal.events.each do |event|
@@ -43,9 +43,9 @@ h2.page-title Dashboard
             td = action.logs_count
             td.text-right
               = link_to edit_user_action_path(action), class: 'btn btn-success mr-1' do
-                = fa_icon 'pencil', text: '編集'
+                = fa_icon 'pencil'
               = link_to user_action_path(action), class: 'btn btn-danger', method: :delete do
-                = fa_icon 'trash', text: '削除'
+                = fa_icon 'trash'
 javascript:
   $(function() {
     $('#user_current_goal_id').on('change', function() {

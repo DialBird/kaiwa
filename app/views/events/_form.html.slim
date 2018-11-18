@@ -12,4 +12,11 @@
 .form-group
   = f.label :memo
   = f.text_area :memo, class: 'form-control', rows: 3
+.form-group
+  = f.label 'アクションプラン'
+  #planList
+    = f.fields_for :plans do |plan|
+      = render 'plan', f: plan
+  = link_to_add_association f, :plans, class: 'btn btn-outline-success w-100', partial: 'plan', data: { association_insertion_node: "#planList", association_insertion_method: "append" } do
+          = fa_icon 'plus', text: 'アクションプランを追加'
 = f.submit '登録', class: 'btn btn-success w-100'

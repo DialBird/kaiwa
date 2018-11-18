@@ -1,0 +1,8 @@
+.nested-fields
+  = f.hidden_field :id
+  .form-group.row
+    .col-md-10
+      = f.text_field :title, class: 'form-control', required: true
+    .col-md-2
+      = link_to_remove_association f, class: 'btn btn-danger w-100' do
+        = fa_icon 'trash'
