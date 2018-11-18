@@ -5,7 +5,7 @@
 # Table name: events
 #
 #  id         :bigint(8)        not null, primary key
-#  user_id    :integer          default(0), not null
+#  goal_id    :integer          default(0), not null
 #  title      :string           default(""), not null
 #  memo       :text             default(""), not null
 #  star       :integer          default(0), not null
@@ -17,11 +17,12 @@
 #
 
 class Event < ApplicationRecord
-  ATTRIBUTES = %i[user_id title memo star review date].freeze
+  ATTRIBUTES = %i[goal_id title memo star review date].freeze
 
-  belongs_to :user
+  belongs_to :goal
   has_many :logs,  dependent: :destroy, inverse_of: :event
   has_many :plans, dependent: :destroy, inverse_of: :event
+  has_many :actions, through: :plans
 
   accepts_nested_attributes_for :plans, allow_destroy: true, reject_if: :all_blank
 

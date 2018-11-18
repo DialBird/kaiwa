@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id", default: 0, null: false
+    t.integer "goal_id", default: 0, null: false
     t.string "title", default: "", null: false
     t.text "memo", default: "", null: false
     t.integer "star", default: 0, null: false
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_100901) do
 
   add_foreign_key "actions", "goals", name: "actions_goal_id_fk"
   add_foreign_key "episodes", "users", name: "episodes_user_id_fk"
-  add_foreign_key "events", "users", name: "events_user_id_fk"
+  add_foreign_key "events", "goals", name: "events_goal_id_fk"
   add_foreign_key "goals", "users", name: "goals_user_id_fk"
   add_foreign_key "habits", "users", name: "habits_user_id_fk"
   add_foreign_key "logs", "events", name: "logs_event_id_fk"

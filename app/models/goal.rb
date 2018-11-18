@@ -19,8 +19,7 @@ class Goal < ApplicationRecord
 
   belongs_to :user
   has_many :actions, dependent: :destroy, inverse_of: :goal
-
-  accepts_nested_attributes_for :actions, allow_destroy: true, reject_if: :all_blank
+  has_many :events, -> { order(created_at: :asc) }, dependent: :destroy, inverse_of: :goal
 
   validates :title, presence: true
 end
